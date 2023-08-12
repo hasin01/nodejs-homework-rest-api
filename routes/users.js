@@ -5,6 +5,8 @@ const {
   register,
   current,
   updateAvatar,
+  verifyEmail,
+  resendVerifyEmail,
 } = require("../controllers/auth.contoller");
 const authMiddleware = require("../middleware/auth");
 const router = express.Router();
@@ -17,5 +19,7 @@ router.post("/login", validateLogin(schemas.loginSchema), login);
 router.post("/logout", authMiddleware, logout);
 router.patch("/avatars", authMiddleware, upload.single("avatar"), updateAvatar);
 router.get("/current", authMiddleware, current);
+router.post("/verify", resendVerifyEmail);
+router.get("/verify/:verificationCode", verifyEmail);
 
 module.exports = router;

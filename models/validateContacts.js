@@ -82,11 +82,10 @@ const validateLogin = (schema) => {
   };
   return middleware;
 };
-
 module.exports = {
   validatePostContact,
   validatePutContact,
   validatePatchContact,
+  validateLogin, 
   validateRegister,
-  validateLogin,
 };
